@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %} Portfolio {% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="col-md-6">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Ticker Price</th>
+                        <th>Total Price</th>
+                        <th>Total Share</th>
+                        <th>Transaction Type</th>
+                        <th>Timestamp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for stock in stocks %}
+                        <tr>
+                            <td>{{ stock.symbol }}</td>
+                            <td>{{ "%.2f" | stock.share_price }}</td>
+                            <td>${{ "%.2f" | stock.price }}</td>
+                            <td>{{ stock.total }}</td>
+                            <td>{{ stock.type }}</td>
+                            <td>{{ stock.timestamp }}</td>
+
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

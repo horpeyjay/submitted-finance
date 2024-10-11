@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block title %} Quoted {% endblock %}
+
+{% block main %}
+    <!--<p>A share of {{ name }} with symbol ({{ symbol.upper() }}) costs ${{ price }}.</p>-->
+    <p>A share of {{ name }} with symbol ({{ symbol.upper() }}) costs ${{ "%.2f" | format(price) }}.</p>
+    <a href="/quote"> <button>Go Back To Quotes</button> </a>
+{% endblock %}
